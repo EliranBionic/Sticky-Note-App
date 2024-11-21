@@ -1,0 +1,203 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    src: url("Assets/Caveat/Caveat-VariableFont_wght.ttf");
+    font-family: "Caveat";
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playwrite+CU:wght@100..400&display=swap");
+
+body {
+    background-image: url("./Assets/office-desk.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 100px;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px !important;
+    height: 100px;
+
+    background-image: url("./Assets/title.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 1s ease-in-out;
+}
+
+header:hover {
+    transform: rotate(7deg);
+    transition: 0.7s ease-in-out;
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Task Form */
+.task-form {
+    background-image: url("./Assets/formbg.jpg");
+    background-size: contain;
+    background-repeat: repeat-y; /* Ensures the image fits without stretching */
+
+    width: 50%;
+    height: auto;
+    padding-left: 20px;
+    margin: 0px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task-form label {
+    font-family: "Caveat";
+    font-size: 25px;
+    margin-bottom: 10px;
+
+    width: 100%;
+    max-width: 500px;
+    font-weight: bold;
+}
+
+.task-form input {
+    font-family: "Caveat";
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 0px;
+    margin-left: 8% !important;
+    width: 30%;
+    align-self: flex-start;
+}
+
+.task-form button:hover {
+    background-color: #45a049;
+}
+
+/* Notes Container */
+#notesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Sticky Note */
+.sticky-note {
+    font-family: "caveat", cursive;
+    background-image: url("./Assets/notebg.png");
+    font-size: 20px !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 350px;
+    height: 450px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    transition: ease-in-out 0.3s;
+}
+
+.sticky-note .note-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+    width: 100%;
+    padding-right: 20px;
+}
+
+/* Add animation class for new notes */
+.sticky-note.new-note {
+    animation: fadeInOpacity 0.8s ease-in;
+}
+
+.sticky-note:hover .delete-btn {
+    display: block;
+}
+
+.sticky-note .note-content {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px !important;
+    color: #333;
+    max-height: 150px;
+    overflow-y: auto;
+    word-wrap: break-word;
+    padding: 5px;
+}
+
+/* Date and Time */
+.sticky-note .note-footer {
+    align-self: flex-start;
+    margin-top: auto;
+    font-size: 32px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Delete Button */
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    color: #ff4444;
+    cursor: pointer;
+    font-size: 16px;
+    display: none;
+}
+
+.sticky-note:hover {
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
+    transform: translateY(-10px);
+}
